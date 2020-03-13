@@ -4,9 +4,8 @@ import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 
 // Home Screen Component
 const ButtonComponent = () => {
-  return <View>
-    <Text style={styles.text}>Home</Text>
-
+  return <View style={styles.alignView}>
+    
     <TouchableOpacity style={styles.button} onPress={()=> console.log('Navigate to Directory Page')}>
       <Text>Directory</Text>
     </TouchableOpacity>
@@ -23,8 +22,14 @@ const styles = StyleSheet.create({
   },
   button: {
     borderColor: 'blue',
-    borderWidth: 3
+    borderWidth: 3,
+    marginTop: 15,
+    paddingHorizontal: 50,
   },
+  alignView: {
+    alignItems: "center",
+    maxWidth: "200%"
+  }
 });
 
 //export
