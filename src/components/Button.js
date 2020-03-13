@@ -3,10 +3,11 @@ import React from "react";
 import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 
 // Home Screen Component
-const ButtonComponent = () => {
+const ButtonComponent = props => {
+
   return <View style={styles.alignView}>
-    <TouchableOpacity style={styles.button} onPress={()=> console.log('Navigate to Directory Page')}>
-      <Text>BUTTON</Text>
+    <TouchableOpacity style={styles.button} onPress={props.onPress}>
+      <Text>{props.title}</Text>
     </TouchableOpacity>
   </View>
 };

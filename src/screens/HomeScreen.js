@@ -5,18 +5,17 @@ import ButtonComponent from "../components/Button";
 
 // Home Screen Component
 const HomeScreen = props => {
-  console.log(props.navigation.navigate('List'))
+
  
 return <View style={styles.alignView}>   
         {/* Navigate to directory */}
-        <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate('List')}>
-          <Text> LISTINGS </Text>
-        </TouchableOpacity>
+        <ButtonComponent title={'LISTINGS'} onPress={()=> props.navigation.navigate('List')} />
+
         {/* Navigate to Components */}
-        <TouchableOpacity style={styles.button} onPress={()=> props.navigation.navigate('Components')}>
-          <Text>DIRECTORY</Text>
-        </TouchableOpacity>
-        <ButtonComponent onPress={()=>{}}></ButtonComponent>
+        <ButtonComponent title={'COMPONENTS'} onPress={()=> props.navigation.navigate('Components')} />
+        
+        {/* Navigate to Components */}
+        <ButtonComponent title={'IMAGES'} onPress={()=> props.navigation.navigate('Images')} />
       </View>
 };
 
