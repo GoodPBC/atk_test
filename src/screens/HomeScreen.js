@@ -1,19 +1,16 @@
 // Import Dependencies
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
+import Button from "../components/Button"
 
 // Home Screen Component
 const HomeScreen = () => {
-  return <Text style={styles.text}>HomeScreen Test #1</Text>;
+  return <View>
+    <Button />
+  </View>
 };
 
 
-//style sheet
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 30
-  }
-});
 
 //export
 export default HomeScreen;
