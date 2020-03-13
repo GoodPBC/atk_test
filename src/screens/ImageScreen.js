@@ -5,15 +5,27 @@ import ImageCard from '../components/ImageCard';
 //Image Screen FC
 const ImageScreen = () => {
     return (
-        <View>
-            <ImageCard title="Image One" />
-            <ImageCard title="Image Two" />
-            <ImageCard title="Image Three" />
+        <View style={styles.wrapper}>
+            <ImageCard style={styles.image} title="Image One" likes="11" imageURL={require('../assets/photo1.jpg')}/>
+            <ImageCard title="Image Two" likes="5" imageURL={require('../assets/photo2.jpg')} />
+            <ImageCard title="Image Three" likes="8" imageURL={require('../assets/photo3.jpg')}/>
         </View>
     )
 }
 //StyleSheet
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    //screen style
+    wrapper: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignContent: 'center',
+    },
+    //image styles
+    image: {
+
+    },
+});
 
 // Export
 export default ImageScreen;

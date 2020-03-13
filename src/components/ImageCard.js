@@ -1,17 +1,34 @@
 import React from 'react'
 import { Image, Text, StyleSheet,  View } from 'react-native'
 
-const ImageCard = props => {
+// custom image component w/ props
+const ImageCard = props => {    
 
-    return (
-        <View>
-            <Image source={{uri: 'https://raw.githubusercontent.com/StephenGrider/rn-casts/029-images/assets/beach.jpg'}}/>
-            <Text>{props.title}</Text>
-        </View>
-    )
-}
+    return <View style={styles.wrapper}>
+                <Image style={styles.image} source={props.imageURL}/>
+                <Text style={styles.text}>{props.title + ' || Likes: ' + props.likes}</Text>
+           </View>
+};
 
-const styles = StyleSheet.create({});
+// stylesheet
+const styles = StyleSheet.create({
+    wrapper: {
+        flexDirection: 'column',
+        paddingVertical: '4%',
+        width: '75%',
+        alignSelf: 'center'
+    },
+    image: {
+        width: '100%',
+        borderColor: '#f55',
+    },
+    text: {
+        alignSelf: 'center',
+        fontSize: 20,
+        color: 'blue',
+    }    
+});
 
+//Export
 export default ImageCard;
 

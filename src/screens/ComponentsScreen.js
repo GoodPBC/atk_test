@@ -10,7 +10,7 @@ const ComponentsScreen = () => {
     return (
         <View>
             <Text style={styles.header}>{header}</Text>
-            <Text style={styles.title}>{header}</Text>
+            <Text style={styles.title}>{title}</Text>
         </View>
     )
 }

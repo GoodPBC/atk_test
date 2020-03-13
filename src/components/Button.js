@@ -5,9 +5,9 @@ import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 // Home Screen Component
 const ButtonComponent = props => {
 
-  return <View style={styles.alignView}>
+  return <View style={styles.wrapper}>
     <TouchableOpacity style={styles.button} onPress={props.onPress}>
-      <Text>{props.title}</Text>
+      <Text style={styles.text}>{props.title}</Text>
     </TouchableOpacity>
   </View>
 };
@@ -15,21 +15,23 @@ const ButtonComponent = props => {
 
 //style sheet
 const styles = StyleSheet.create({
+  wrapper: {
+    alignContent: 'center',
+  },
   text: {
-    fontSize: 30,
-    fontFamily: "helvetica",
+    fontSize: 20,
+    fontFamily: "helvetica",    
     fontWeight: "bold",
+
+
   },
   button: {
     borderColor: 'blue',
     borderWidth: 3,
     marginTop: 15,
     paddingHorizontal: 50,
+    marginHorizontal: 10,
   },
-  alignView: {
-    alignItems: "center",
-    maxWidth: "200%",
-  }
 });
 
 //export
