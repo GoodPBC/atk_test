@@ -4,18 +4,18 @@ import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 import ButtonComponent from "../components/Button";
 
 // Home Screen Component
-const HomeScreen = props => {
+const HomeScreen = ({ navigation }) => {
 
  
 return <View style={styles.alignView}>   
+        {/* Navigate to Components */}
+        <ButtonComponent title={'COMPONENT SCREEN'} onPress={()=> navigation.navigate('Components')} />
+        
         {/* Navigate to directory */}
-        <ButtonComponent title={'LISTINGS'} onPress={()=> props.navigation.navigate('List')} />
+        <ButtonComponent title={'LISTING SCREEN'} onPress={()=> navigation.navigate('List')} />
 
         {/* Navigate to Components */}
-        <ButtonComponent title={'COMPONENTS'} onPress={()=> props.navigation.navigate('Components')} />
-        
-        {/* Navigate to Components */}
-        <ButtonComponent title={'IMAGES'} onPress={()=> props.navigation.navigate('Images')} />
+        <ButtonComponent title={'IMAGE SCREEN'} onPress={()=> navigation.navigate('Images')} />
       </View>
 };
 
