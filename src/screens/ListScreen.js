@@ -5,23 +5,28 @@ import { FlatList, StyleSheet, Text, View } from 'react-native'
 // Home Screen Component
 const ListScreen = () => {
     const people = [
-        {name: "Joanne Smith"},
-        {name: "Jesse Smith"},
-        {name: "Jan Smith"},
-        {name: "Jane Smith"},
-        {name: "Jimmy Smith"},
-        {name: "Joe Smith"}
+        {name: "Joanne Smith", role: 'Admin'},
+        {name: "Jesse Smith", role: 'User'},
+        {name: "Jan Smith", role: 'Influencer'},
+        {name: "Jane Smith", role: 'User'},
+        {name: "Jimmy Smith", role: 'Influencer'},
+        {name: "Joe Smith", role: 'Entrepreneur'}
     ];
     return (
         <View>
-            <Text style={styles.text}>List Screen</Text>
+        
+            <Text style={styles.header}>List Screen</Text>
             {/* pass in data prop && renderItem(element) => {}  */}
             {/* destructure element prop , grab item  */}
-            <FlatList 
+            <FlatList  
+                showsHorizontalScrollIndicator={false}
+                keyExtractor={people => people.name}
                 data={people} 
                 renderItem={( {item} ) => {
                     console.log(item);
-                    return <Text>{item.name}</Text>;
+                    return <View>
+                        <Text style={styles.text}>{item.name} - {item.role}</Text>
+                    </View>
                 }}
             />
         </View>
@@ -30,8 +35,14 @@ const ListScreen = () => {
 }
 //style sheet
 const styles = StyleSheet.create({
-    text: {
+    header: {
         fontSize: 50
+        
+    },
+    text: {
+        marginVertical: 15,
+        fontWeight: '700',
+        color: 'blue',
     }
 })
 //export
