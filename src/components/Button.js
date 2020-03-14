@@ -29,8 +29,7 @@ const styles = StyleSheet.create({
     borderColor: 'blue',
     borderWidth: 3,
     marginTop: 15,
-    paddingHorizontal: 50,
-    marginHorizontal: 10,
+    paddingHorizontal: '34.33%',
   },
 });
 

@@ -14,8 +14,9 @@ return <View style={styles.alignView}>
         {/* Navigate to directory */}
         <ButtonComponent title={'LISTING SCREEN'} onPress={()=> navigation.navigate('List')} />
 
-        {/* Navigate to Components */}
+        {/* Navigate to Images */}
         <ButtonComponent title={'IMAGE SCREEN'} onPress={()=> navigation.navigate('Images')} />
+        
       </View>
 };
 
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
   },
   alignView: {
     // alignItems: "center",
-    maxWidth: "500",
+    maxWidth: 500,
   }
 });
 
