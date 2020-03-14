@@ -9,13 +9,16 @@ const HomeScreen = ({ navigation }) => {
  
 return <View style={styles.alignView}>   
         {/* Navigate to Components */}
-        <ButtonComponent title={'COMPONENT SCREEN'} style={styles.button} onPress={()=> navigation.navigate('Components')} />
+        <ButtonComponent title={'HOME'} onPress={()=> navigation.navigate('Components')} />
         
         {/* Navigate to directory */}
-        <ButtonComponent title={'LISTING SCREEN'} onPress={()=> navigation.navigate('List')} />
+        <ButtonComponent title={'PEOPLE'} onPress={()=> navigation.navigate('List')} />
 
         {/* Navigate to Images */}
-        <ButtonComponent title={'IMAGE SCREEN'} onPress={()=> navigation.navigate('Images')} />
+        <ButtonComponent title={'IMAGES'} onPress={()=> navigation.navigate('Images')} />
+
+        {/* Navigate to Color Game */}
+        <ButtonComponent title={'COLOR GAME'} onPress={()=> navigation.navigate('Colors')} />
         
       </View>
 };
