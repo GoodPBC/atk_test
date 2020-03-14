@@ -5,7 +5,7 @@ import Button from '../components/Button'
 
 // Color Screen Component
 const ColorScreen = () => {
-
+    //initial functional state 
     const [color, setColor] = useState([]);
     console.log(color);
 
