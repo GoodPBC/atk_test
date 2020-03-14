@@ -1,7 +1,8 @@
+// Import Dependencies
 import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import ButtonComponent from '../components/Button'
-
+// Counter Component
 const LoveCounter = props => {
 
 
@@ -22,7 +23,7 @@ const LoveCounter = props => {
         </View>
     )
 }
-
+//style sheet
 const styles = StyleSheet.create({
     text: {
         fontSize: 18,
@@ -30,5 +31,5 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
       },
 })
-
+//export
 export default LoveCounter

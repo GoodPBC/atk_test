@@ -2,7 +2,8 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import ImageCard from '../components/ImageCard';
-//Image Screen FC
+
+//Image Screen Component
 const ImageScreen = () => {
     return (
         <View style={styles.wrapper}>
@@ -12,6 +13,7 @@ const ImageScreen = () => {
         </View>
     )
 }
+
 //StyleSheet
 const styles = StyleSheet.create({
     //screen style

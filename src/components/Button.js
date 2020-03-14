@@ -2,7 +2,7 @@
 import React from "react";
 import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 
-// Home Screen Component
+// Button Component
 const ButtonComponent = props => {
 
   return <View style={styles.wrapper}>

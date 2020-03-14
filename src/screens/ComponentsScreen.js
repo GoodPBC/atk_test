@@ -2,7 +2,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-// Home Screen Component
+//Components Screen Component
 const ComponentsScreen = () => {
     const header = 'Header';
     const title = 'this is title text';

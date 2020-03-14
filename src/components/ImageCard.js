@@ -1,3 +1,4 @@
+// Import Dependencies
 import React from 'react'
 import { Image, Text, StyleSheet,  View } from 'react-native'
 import LoveCounter from '../components/Counter'

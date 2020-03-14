@@ -2,7 +2,7 @@
 import React from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 
-// Home Screen Component
+// List Screen Component
 const ListScreen = () => {
     const people = [
         {name: "Joanne Smith", role: 'Admin'},
