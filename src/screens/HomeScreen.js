@@ -19,6 +19,9 @@ return <View style={styles.alignView}>
 
         {/* Navigate to Color Game */}
         <ButtonComponent title={'COLOR GAME'} onPress={()=> navigation.navigate('Colors')} />
+
+        {/* Navigate to Color Picker */}
+        <ButtonComponent title={'COLOR PICKER'} onPress={()=> navigation.navigate('ColorPicker')} />
         
       </View>
 };
