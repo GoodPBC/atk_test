@@ -1,6 +1,6 @@
 // Import Dependencies
 import React , {useState} from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
 import Button from '../components/Button'
 
 // Color Screen Component
@@ -12,9 +12,19 @@ const ColorScreen = () => {
 
     return (
         <View>
+            {/* tile generator */}
             <Button title={"SURPRISE"} onPress={() => setColor([...color,randomColor()])}/>
-            {/* Dynamic rgb gen */}
-            <View style={{height: 100, width: 100, backgroundColor: randomColor()}}/>
+
+            {/* colors flatlist */}
+            <FlatList
+                keyExtractor={(item) => {return item}}
+                data={color} 
+                renderItem={( {item} ) => {
+                    console.log(item);
+                    {/* Dynamic rgb gen */} 
+                    return <View style={{height: 100, width: 100, backgroundColor: item }}/>
+                }}
+            />
         </View>
     )
 }
