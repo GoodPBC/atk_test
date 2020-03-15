@@ -1,3 +1,7 @@
+/*
+useReducer use case
+*/ 
+
 //Dependency 
 import React, { useReducer } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
@@ -8,38 +12,27 @@ const COLOR_CHANGE = 15;
 
 // color reducer
 const reducer = (state, action) => {
+    console.log(action)
   
-    switch (action.changeColor) {
-      case 'Red':
-          // reducer log
-          console.log(`STATE: `, state) // state 
-          console.log(`ACTION ON: `, action.changeColor) // action on Red
-          console.log(`ACTION CHANGE VALUE: `, action.amount) // apply amount to Red
-
-        //Red validation
-        if(state.Red + action.amount >= 256 || state.Red + action.amount <= -1) {
-            return state;
-        }
-        //Red +/- 15 
-        return { ...state, Red: state.Red + action.amount };
+    switch (action.type) {
       
-        case 'Green':
+        case 'change_Red':
+        //Red validation - ternary
+         return state.Red + action.payload >= 256 || state.Red + action.payload <= -1 
+            ? state 
+            : { ...state, Red: state.Red + action.payload };
       
-        //Green validation
-        if(state.Green + action.amount >= 256 || state.Green + action.amount <= -1) {
-            return state;
-        }        
-        //Green +/- 15 
-        return { ...state, Green: state.Green + action.amount };
+        case 'change_Green':
+        //Green validation - ternary
+        return state.Green + action.payload >= 256 || state.Green + action.payload <= -1 
+        ? state 
+        : { ...state, Green: state.Green + action.payload };
       
-        case 'Blue':
-
-        //Blue validation
-        if(state.Blue + action.amount >= 256 || state.Blue + action.amount <= -1) {
-            return state;
-        }         
-        //Blue +/- 15   
-        return { ...state, Blue: state.Blue + action.amount };
+        case 'change_Blue':
+        //Blue validation - ternary
+        return state.Blue + action.payload >= 256 || state.Blue + action.payload <= -1 
+        ? state 
+        : { ...state, Blue: state.Blue + action.payload };
       
         default:
         return state;
@@ -56,7 +49,7 @@ const ColorPickerScreen = () => {
     let color = `${state.Red}, ${state.Green}, ${state.Blue} `;
     
     // state delivered to component
-    console.log(`THis is State:` , state); // Red: 0, Green: 0, Blue: 0
+    console.log(`CURRENT_STATE:` , state); // Red: 0, Green: 0, Blue: 0
 
     // colorPickers for RBG
     return (
@@ -68,12 +61,12 @@ const ColorPickerScreen = () => {
 
                 // onPressTop incrementing/controlling Red state
                 onPressTop={() => 
-                    dispatch({ changeColor: 'Red', amount: COLOR_CHANGE })
+                    dispatch({ type: 'change_Red', payload: COLOR_CHANGE })
                 }
                 
                 // onPressTop decrementing/controlling R state
                 onPressBottom={() => 
-                    dispatch({ changeColor: 'Red', amount: -1 * COLOR_CHANGE })
+                    dispatch({ type: 'change_Red', payload: -1 * COLOR_CHANGE })
                 }
             />
             
@@ -82,12 +75,12 @@ const ColorPickerScreen = () => {
             
                 // onPressTop incrementing/controlling G state
                 onPressTop={() => 
-                dispatch({ changeColor: 'Green', amount: COLOR_CHANGE })
+                dispatch({ type: 'change_Green', payload: COLOR_CHANGE })
                 }
                 
                 // onPressTop decrementing/controlling G state
                 onPressBottom={() => 
-                    dispatch({ changeColor: 'Green', amount: -1 * COLOR_CHANGE })
+                    dispatch({ type: 'change_Green', payload: -1 * COLOR_CHANGE })
                 }
             />
     
@@ -96,12 +89,12 @@ const ColorPickerScreen = () => {
                 
                 // onPressTop incrementing/controlling B state
                 onPressTop={() => 
-                    dispatch({ changeColor: 'Blue', amount: COLOR_CHANGE })                
+                    dispatch({ type: 'change_Blue', payload: COLOR_CHANGE })                
                 }
                 
                 // onPressTop decrementing/controlling B state
                 onPressBottom={() => 
-                    dispatch({ changeColor: 'Blue', amount: -1 * COLOR_CHANGE })                
+                    dispatch({ type: 'change_Blue', payload: -1 * COLOR_CHANGE })                
                 }
             />
             

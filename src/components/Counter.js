@@ -1,3 +1,7 @@
+/*
+useState use case
+*/ 
+
 // Import Dependencies
 import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
@@ -33,3 +37,4 @@ const styles = StyleSheet.create({
 })
 //export
 export default LoveCounter
+

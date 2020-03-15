@@ -5,22 +5,25 @@ import Button from '../components/Button'
 
 // Color Screen Component
 const ColorScreen = () => {
+
     //initial functional state 
     const [color, setColor] = useState([]);
+    
+    // logs
     console.log(color);
 
 
     return (
         <View>
             {/* tile generator */}
-            <Button title={"SURPRISE"} onPress={() => setColor([...color,randomColor()])}/>
+            <Button title={"SURPRISE"} onPress={() => setColor([...color,randomColor()] )} />
 
             {/* colors flatlist */}
             <FlatList
                 keyExtractor={(item) => {return item}}
                 data={color} 
                 renderItem={( {item} ) => {
-                    console.log(item);
+
                     {/* Dynamic rgb gen */} 
                     return <View style={{height: 100, width: 100, backgroundColor: item }}/>
                 }}
@@ -35,6 +38,7 @@ const randomColor = () => {
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
 
+    console.log(`randomColor OUTPUT: rgb(${r},${g},${b})`);
     return `rgb(${r},${g},${b})`;
 }
 
