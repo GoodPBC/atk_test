@@ -1,83 +1,110 @@
 //Dependency 
-import React, { useState } from 'react'
+import React, { useReducer } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import ColorPicker from '../components/ColorPicker'
 
-
+//constant
 const COLOR_CHANGE = 15;
+
+// color reducer
+const reducer = (state, action) => {
+  
+    switch (action.changeColor) {
+      case 'Red':
+          // reducer log
+          console.log(`STATE: `, state) // state 
+          console.log(`ACTION ON: `, action.changeColor) // action on Red
+          console.log(`ACTION CHANGE VALUE: `, action.amount) // apply amount to Red
+
+        //Red validation
+        if(state.Red + action.amount >= 256 || state.Red + action.amount <= -1) {
+            return state;
+        }
+        //Red +/- 15 
+        return { ...state, Red: state.Red + action.amount };
+      
+        case 'Green':
+      
+        //Green validation
+        if(state.Green + action.amount >= 256 || state.Green + action.amount <= -1) {
+            return state;
+        }        
+        //Green +/- 15 
+        return { ...state, Green: state.Green + action.amount };
+      
+        case 'Blue':
+
+        //Blue validation
+        if(state.Blue + action.amount >= 256 || state.Blue + action.amount <= -1) {
+            return state;
+        }         
+        //Blue +/- 15   
+        return { ...state, Blue: state.Blue + action.amount };
+      
+        default:
+        return state;
+    }
+};
 
 // ColorPickerScreen Component
 const ColorPickerScreen = () => {
 
-    //initial functional state 
-    const [red, setRedIntensity] = useState(0)
-    const [green, setGreenIntensity] = useState(0)
-    const [blue, setBlueIntensity] = useState(0)
+    //useReducer functional state 
+    const [state, dispatch] = useReducer(reducer, {Red: 0 , Green: 0, Blue: 0 })
 
-    // logs
-    console.log(red)
-    console.log(green)
-    console.log(blue)
-
-    
     //rgb
-    let color = `${red},${green},${blue}`;
-
-    //color value control function 
-    const colorValueController = (colorVal, ColorValChange) => {
-        switch(colorVal) {
-            case 'Red':
-                if (red + ColorValChange <= -1 || red + ColorValChange >= 256) {
-                    console.log("RED CASE HIT: " , red);
-                    return;
-                } else {
-                    setRedIntensity(red + ColorValChange);
-                }
-                return;
-            case 'Green':
-                if (green + ColorValChange <= -1 ||green + ColorValChange >= 256) {
-                    console.log("GREEN CASE HIT: " , green);
-                    return;
-                } else {
-                    setGreenIntensity(green + ColorValChange);
-                }
-                return;                
-            case 'Blue':
-                if (blue + ColorValChange <= -1 || blue + ColorValChange >= 256) {
-                    console.log("BLUE CASE HIT: " , blue);
-                    return;
-                } else {
-                    setBlueIntensity(blue + ColorValChange);
-                }
-                return;
-            }
-    }
+    let color = `${state.Red}, ${state.Green}, ${state.Blue} `;
+    
+    // state delivered to component
+    console.log(`THis is State:` , state); // Red: 0, Green: 0, Blue: 0
 
     // colorPickers for RBG
     return (
         <View>
             <Text style={styles.headerText}>Color Picker Screen</Text>
+
             {/* Red colorPicker */}
             <ColorPicker color="Red" topTitle="+ Red" bottomTitle="- Red"
-                // onPressTop incrementing/controlling R state
-                onPressTop={() => { colorValueController('Red', COLOR_CHANGE) }}
+
+                // onPressTop incrementing/controlling Red state
+                onPressTop={() => 
+                    dispatch({ changeColor: 'Red', amount: COLOR_CHANGE })
+                }
+                
                 // onPressTop decrementing/controlling R state
-                onPressBottom={() => { colorValueController('Red', -1 * COLOR_CHANGE) }}
+                onPressBottom={() => 
+                    dispatch({ changeColor: 'Red', amount: -1 * COLOR_CHANGE })
+                }
             />
             
+            {/* Green colorPicker */}
             <ColorPicker color="Green" topTitle="+ Green" bottomTitle="- Green"
+            
                 // onPressTop incrementing/controlling G state
-                onPressTop={() => { colorValueController('Green', COLOR_CHANGE) }}
+                onPressTop={() => 
+                dispatch({ changeColor: 'Green', amount: COLOR_CHANGE })
+                }
+                
                 // onPressTop decrementing/controlling G state
-                onPressBottom={() => { colorValueController('Green', -1 * COLOR_CHANGE) }}
+                onPressBottom={() => 
+                    dispatch({ changeColor: 'Green', amount: -1 * COLOR_CHANGE })
+                }
+            />
+    
+            {/* Blue colorPicker */}
+            <ColorPicker color="Blue" topTitle="+ Blue" bottomTitle="- Blue" 
+                
+                // onPressTop incrementing/controlling B state
+                onPressTop={() => 
+                    dispatch({ changeColor: 'Blue', amount: COLOR_CHANGE })                
+                }
+                
+                // onPressTop decrementing/controlling B state
+                onPressBottom={() => 
+                    dispatch({ changeColor: 'Blue', amount: -1 * COLOR_CHANGE })                
+                }
             />
             
-            <ColorPicker color="Blue" topTitle="+ Blue" bottomTitle="- Blue" 
-                // onPressTop incrementing/controlling B state
-                onPressTop={() => { colorValueController('Blue', COLOR_CHANGE) }}
-                // onPressTop decrementing/controlling B state
-                onPressBottom={() => { colorValueController('Blue', -1 * COLOR_CHANGE) }}
-            />
             <View style={{ minHeight: 200, minWidth: 200, backgroundColor: `rgb(${color})`}}></View>
             
 
