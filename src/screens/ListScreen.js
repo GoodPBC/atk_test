@@ -1,6 +1,7 @@
 // Import Dependencies
 import React from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
+import UserTextInput from '../components/UserTextInput';
 
 // List Screen Component
 const ListScreen = () => {
@@ -29,6 +30,7 @@ const ListScreen = () => {
                     </View>
                 }}
             />
+            <UserTextInput />
         </View>
 
     )
