@@ -1,22 +1,25 @@
 // Import Dependencies
-import React from 'react'
+import React, {useState} from 'react'
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 
 // Text Input Component
-const UserTextInput = props => {
-    
+const UserTextInput = () => {
+    const [value, setValue] = useState('');
+
     return (
-        <View>
-            <Text>Text Input Component</Text>
-            <TextInput
-                style={styles.textinput}
-                onChangeText={() => {console.log(`something is happing`)}}
-                autoCorrect={false}
-                autoCapitalize="none"                    
-            />
-        </View>
-    )
-}
+      <View>
+        <Text>Enter value:</Text>
+        <TextInput
+          style={styles.textinput}
+          autoCapitalize="none"
+          autoCorrect={false}
+          value={value}
+          onChangeText={newValue => setValue(newValue)}
+        />
+        <Text>My value is {value}</Text>
+      </View>
+    );
+  };
 
 //style sheet
 const styles = StyleSheet.create({
