@@ -23,14 +23,24 @@ const ListScreen = () => {
         
             <Text style={styles.header}>Profile</Text>
             
+            {/* TO DO  Add Text Input to conditional Render for Profile Creation */}
             {/* Profile Input */}
-            <TextInput
+            {/* <TextInput
                     style={styles.textinput}
                     autoCapitalize="none"
                     autoCorrect={false}
                     value={name}
                     onChangeText={newValue => setName(newValue)}
-            />
+            /> */}
+
+
+
+            <UserTextInput />
+
+            <View style={styles.horizontalrule}/>
+
+
+            {/* TO DO  Push Profile Form to FlatList on Submit */}
             <Text style={styles.placeholderText}>My name is: <Text style={styles.text}>{name}</Text></Text>
 
             {/* Profile FlatList */}
@@ -83,7 +93,11 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         // marginHorizontal: 40,
         marginTop: 5,
-    }
+    },
+    horizontalrule: {
+        borderBottomColor: 'black',
+        borderBottomWidth: 1,       
+    },
 })
 //export
 export default ListScreen;

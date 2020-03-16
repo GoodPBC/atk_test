@@ -8,7 +8,7 @@ const UserTextInput = () => {
 
     return (
       <View>
-        <Text>Enter value:</Text>
+        <Text style={{marginHorizontal: 40,}}>ENTER YOUR FIRST AND LAST NAME:</Text>
         <TextInput
           style={styles.textinput}
           autoCapitalize="none"
@@ -16,10 +16,16 @@ const UserTextInput = () => {
           value={value}
           onChangeText={newValue => setValue(newValue)}
         />
-        <Text>My value is {value}</Text>
+        {/* conditional render 1st pass */}
+        { 
+            
+            value.length <= 5 ? <Text style={{backgroundColor: 'blue', color: 'red', fontWeight: 'bold'}}>6 or more characters</Text>
+            : <Text style={{backgroundColor: 'red', color: 'blue', fontWeight: '100'}}>5 or less characters</Text>
+        }        
+
       </View>
     );
-  };
+};
 
 //style sheet
 const styles = StyleSheet.create({
@@ -31,7 +37,8 @@ const styles = StyleSheet.create({
         fontFamily: 'helvetica',
         alignContent: 'center',
         marginHorizontal: 40,
-        marginTop: 25,
+        marginTop: 5,
+        marginBottom: 25,
         minHeight: 40,
     }
 })
