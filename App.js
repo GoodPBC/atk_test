@@ -7,6 +7,7 @@ import ListScreen from './src/screens/ListScreen';
 import ImageScreen from './src/screens/ImageScreen';
 import ColorScreen from './src/screens/ColorScreen';
 import ColorPickerScreen from './src/screens/ColorPickerScreen';
+import BasicStyleScreen from './src/screens/BasicStyleScreen';
 
 
 // Home Screen Component
@@ -18,6 +19,7 @@ const navigator = createStackNavigator(
     Images: ImageScreen,
     Colors: ColorScreen,
     ColorPicker: ColorPickerScreen,
+    BasicStyle: BasicStyleScreen,
   },
   {
     initialRouteName: "Home",

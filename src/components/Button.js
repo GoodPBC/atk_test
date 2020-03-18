@@ -3,11 +3,11 @@ import React from "react";
 import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 
 // Button Component
-const ButtonComponent = props => {
+const ButtonComponent = ({onPress, title}) => {
 
   return <View style={styles.wrapper}>
-    <TouchableOpacity style={styles.button} onPress={props.onPress}>
-      <Text style={styles.text}>{props.title}</Text>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   </View>
 };
@@ -22,14 +22,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "helvetica",    
     fontWeight: "bold",
+    alignSelf: 'center',
 
 
   },
   button: {
     borderColor: 'blue',
     borderWidth: 3,
-    marginTop: 15,
-    paddingHorizontal: '34.33%',
+    marginTop: 25,
+    paddingVertical: 10,
+    width: 200,
+    backgroundColor: 'rgba(237,73,86,.5)',
   },
 });
 

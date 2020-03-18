@@ -5,7 +5,7 @@ import UserTextInput from '../components/UserTextInput'
 
 // List Screen Component
 const ListScreen = props => {
-    const [name, setName] = useState('');
+    const [name, setValue] = useState('');
 
     const people = [
         {name: "Joanne Smith", role: 'Admin'},
@@ -24,23 +24,13 @@ const ListScreen = props => {
             <Text style={styles.header}>Profile</Text>
             
             {/* TO DO  Add Text Input to conditional Render for Profile Creation */}
-            {/* Profile Input */}
-            {/* <TextInput
-                    style={styles.textinput}
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    
-                    onChangeText={newValue => setName(newValue)}
-            /> */}
 
-
-
-            <UserTextInput onChangeText={newValue => setName(newValue)} value={name} title={"ENTER YOUR FIRST AND LAST NAME:"}/>
+            <UserTextInput onChangeText={newValue => setValue(newValue)} value={name} title={"ENTER YOUR FIRST AND LAST NAME:"}/>
 
             <View style={styles.horizontalrule}/>
 
-
             {/* TO DO  Push Profile Form to FlatList on Submit */}
+
             <Text style={styles.placeholderText}>My name is: <Text style={styles.text}>{name}</Text></Text>
 
             {/* Profile FlatList */}

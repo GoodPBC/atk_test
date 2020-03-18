@@ -7,9 +7,12 @@ import ButtonComponent from "../components/Button";
 const HomeScreen = ({ navigation }) => {
 
  
-return <View style={styles.alignView}>   
+return <View style={styles.alignView}> 
+
+        <Text style={styles.text}>PICK A SECTION</Text>
+
         {/* Navigate to Components */}
-        <ButtonComponent title={'HOME'} onPress={()=> navigation.navigate('Components')} />
+        <ButtonComponent title={'HOME'} onPress={()=> navigation.navigate('Home')} />
         
         {/* Navigate to directory */}
         <ButtonComponent title={'PEOPLE'} onPress={()=> navigation.navigate('List')} />
@@ -22,19 +25,23 @@ return <View style={styles.alignView}>
 
         {/* Navigate to Color Picker */}
         <ButtonComponent title={'COLOR PICKER'} onPress={()=> navigation.navigate('ColorPicker')} />
+
+        {/* Navigate to Basic Style Screen */}
+        <ButtonComponent title={'BASIC STYLE'} onPress={()=> navigation.navigate('BasicStyle')} />
         
       </View>
 };
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 30,
+    paddingTop: 30,
+    color: 'blue',
+    fontSize: 20,
     fontFamily: "helvetica",
     fontWeight: "bold",
   },
   alignView: {
-    // alignItems: "center",
-    maxWidth: 500,
+    alignItems: "center",
   }
 });
 
