@@ -4,7 +4,7 @@ import { FlatList, StyleSheet, Text, View, TextInput} from 'react-native'
 import UserTextInput from '../components/UserTextInput'
 
 // List Screen Component
-const ListScreen = () => {
+const ListScreen = props => {
     const [name, setName] = useState('');
 
     const people = [
@@ -29,13 +29,13 @@ const ListScreen = () => {
                     style={styles.textinput}
                     autoCapitalize="none"
                     autoCorrect={false}
-                    value={name}
+                    
                     onChangeText={newValue => setName(newValue)}
             /> */}
 
 
 
-            <UserTextInput />
+            <UserTextInput onChangeText={newValue => setName(newValue)} value={name} title={"ENTER YOUR FIRST AND LAST NAME:"}/>
 
             <View style={styles.horizontalrule}/>
 
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         color: 'black',
         fontFamily: 'helvetica',
         alignContent: 'center',
-        // marginHorizontal: 40,
+        marginHorizontal: 40,
         marginTop: 25,
         minHeight: 40,
     },

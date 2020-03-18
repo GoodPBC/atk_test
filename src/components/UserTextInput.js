@@ -1,20 +1,20 @@
 // Import Dependencies
-import React, {useState} from 'react'
+import React from 'react'
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 
 // Text Input Component
-const UserTextInput = () => {
-    const [value, setValue] = useState('');
+const UserTextInput = ({value, onChangeText, title }) => {
+    // const [value, setValue] = useState('');
 
     return (
       <View>
-        <Text style={{marginHorizontal: 40,}}>ENTER YOUR FIRST AND LAST NAME:</Text>
+        <Text style={{marginHorizontal: 40,}}>{title}</Text>
         <TextInput
           style={styles.textinput}
           autoCapitalize="none"
           autoCorrect={false}
           value={value}
-          onChangeText={newValue => setValue(newValue)}
+          onChangeText={onChangeText}
         />
         {/* conditional render 1st pass */}
         { 
