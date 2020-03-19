@@ -7,8 +7,8 @@ const BasicStyleScreen = () => {
     return (
         <View style={styles.alignView}>
             <Text style={styles.text}>STYLE SCREEN</Text>
-            <BasicStyle/>
-            <BasicStyle/>
+            <BasicStyle style={styles.box1}/>
+            <BasicStyle style={styles.box2}/>
             <BasicStyle/>
         </View>
     )
@@ -18,8 +18,11 @@ const BasicStyleScreen = () => {
 const styles = StyleSheet.create({
     
     alignView: {
+        flexDirection: 'column',
         alignItems: 'center',
+        justifyContent: 'space-evenly',
         marginVertical: 30,
+        
 
     },
     text: {
@@ -27,7 +30,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: "helvetica",
         fontWeight: "bold",
-    },    
+    },
 })
 
 export default BasicStyleScreen

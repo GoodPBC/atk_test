@@ -13,7 +13,10 @@ const BasicStyle = () => {
 
 const styles = StyleSheet.create({
     viewStyle: {
-        marginVertical: 10,
+        marginVertical: 15,
+        height: 100,
+
+
     },
     text: {
         color: 'black',

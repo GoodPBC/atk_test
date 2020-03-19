@@ -29,6 +29,9 @@ return <View style={styles.alignView}>
         {/* Navigate to Basic Style Screen */}
         <ButtonComponent title={'BASIC STYLE'} onPress={()=> navigation.navigate('BasicStyle')} />
         
+        {/* Navigate to Basic Search Screen */}
+        <ButtonComponent title={'SEARCH'} onPress={()=> navigation.navigate('Search')} />
+        
       </View>
 };
 

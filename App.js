@@ -8,6 +8,7 @@ import ImageScreen from './src/screens/ImageScreen';
 import ColorScreen from './src/screens/ColorScreen';
 import ColorPickerScreen from './src/screens/ColorPickerScreen';
 import BasicStyleScreen from './src/screens/BasicStyleScreen';
+import SearchScreen from './src/screens/SearchScreen';
 
 
 // Home Screen Component
@@ -20,11 +21,12 @@ const navigator = createStackNavigator(
     Colors: ColorScreen,
     ColorPicker: ColorPickerScreen,
     BasicStyle: BasicStyleScreen,
+    Search: SearchScreen,
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Search",
     defaultNavigationOptions: {
-      title: "HOME"
+      title: "Business Search"
     }
   }
 );
