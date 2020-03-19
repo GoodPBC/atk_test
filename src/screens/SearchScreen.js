@@ -5,25 +5,28 @@ import yelp from '../api/yelp'
 
 
 const SearchScreen = () => {
-    const [searchText, handleSearchText] = useState('')
-    const [yelpResults, setYelpResults] = useState([])
+    const [term, setTerm] = useState('')
+    const [results, setResults] = useState([])
     const [errorMessage, setErrorMessage] = useState('')
 
     // Axios Helper
-    const ApiHelper = async () => {
+    const ApiHelper = async searchTerm => {
+        console.log("Hi There");
         try{
             const res =  await yelp.get(`/search`, {
                 //api headers here
                 params: {
-                    term: searchText,
+                    term: searchTerm,
                     limit: 2,
                     location: `jersey city`
                 }
             });
             //api state setter
-            setYelpResults(res.data.businesses)
+            setResults(res.data.businesses)
+            console.log(res.data.businesses)
         } catch (err) {
             setErrorMessage('OOPS, Something Went Wrong.')
+            console.log(err)
         }
         
 
@@ -33,19 +36,13 @@ const SearchScreen = () => {
         <View>
             {/* Search Bar */}
             <Search 
-                value={searchText} 
-                placeholder="Search" 
-                onChangeText={
-                    newSearchText => {
-                        handleSearchText(newSearchText)
-                    }
-                } 
-                title="search bar"
-                onSearchSubmit={ApiHelper} 
-                />
+                term={term} 
+                onChangeTerm={setTerm}
+                onTermSubmit={() => ApiHelper(term)} 
+            />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
 
-            <Text>We found {yelpResults.length} results </Text>
+            <Text>We found {results.length} results </Text>
             
         </View>
     )
