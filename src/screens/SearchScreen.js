@@ -43,7 +43,7 @@ const SearchScreen = () => {
                 title="search bar"
                 onSearchSubmit={ApiHelper} 
                 />
-            <Text>{errorMessage}</Text>
+            {errorMessage ? <Text>{errorMessage}</Text> : null}
 
             <Text>We found {yelpResults.length} results </Text>
             
