@@ -5,6 +5,11 @@ import Search from '../components/Search'
 const SearchScreen = () => {
     const [searchText, handleSearchText] = useState('')
 
+    // Axios Helper
+    const ApiHelper = () => {
+
+    }
+
     return (
         <View>
             {/* Search Bar */}
@@ -16,7 +21,7 @@ const SearchScreen = () => {
                         handleSearchText(newSearchText)}} 
                 title="search bar"
                 onEndEditing={() => {console.log(`${searchText} RETURN`)}}
-                onSearchCallApi={() => console.log(`${searchText}`)}
+                onSearchSubmit={() => console.log(`${searchText} Was Submitted`)} 
                 />
             <Text>{searchText}</Text>
             

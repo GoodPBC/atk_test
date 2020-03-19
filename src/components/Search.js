@@ -3,7 +3,7 @@ import { TextInput, StyleSheet, Text, View } from 'react-native'
 import Feather from 'react-native-vector-icons/FontAwesome';
 
 
-const Search = ({ placeholder, value, onChangeText, onEndEditing, onSearchCallApi}) => {
+const Search = ({ placeholder, value, onChangeText, onSearchSubmit}) => {
 
     return (
         <View style={styles.searchBox}>
@@ -18,8 +18,7 @@ const Search = ({ placeholder, value, onChangeText, onEndEditing, onSearchCallAp
                 value={value} 
                 placeholder={placeholder} 
                 onChangeText={onChangeText}
-                onEndEditing={onEndEditing}
-                onSearchCallApi={onSearchCallApi()}
+                onEndEditing={onSearchSubmit}
             />
         </View>
     )
