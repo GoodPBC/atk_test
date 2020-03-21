@@ -1,6 +1,6 @@
 // Import Dependencies
 import React , {useState} from 'react'
-import { FlatList, StyleSheet, Text, View, TextInput} from 'react-native'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
 import UserTextInput from '../components/UserTextInput'
 
 // List Screen Component

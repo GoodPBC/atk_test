@@ -3,9 +3,9 @@ import yelp from "../api/yelp";
 
 //Yelp  API Helper
 export default () => {
+    
     const [results, setResults] = useState([])
     const [errorMessage, setErrorMessage] = useState('')
-    
     
     // Axios Helper
     const YelpApiSearch = async searchTerm => {
@@ -18,15 +18,12 @@ export default () => {
                 }
             });
             setResults(res.data.businesses)
-            console.log(res.data.businesses)
-    
         } catch (err) {
             setErrorMessage('OOPS, Something Went Wrong.')
             console.log(err)
         }
-        
-    
     };
+    
     //
     useEffect(() => {
         YelpApiSearch('Jersey City')

@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Search from '../components/Search'
-import yelp from '../api/yelp'
 import UseYelpApiSearchHook from '../hooks/UseYelpApiSearchHook'
+import SearchResults from '../components/SearchResults'
 
 
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('')
     const [YelpApiSearch, results, errorMessage] = UseYelpApiSearchHook()
+
+    console.log( results )
 
     return (
         <View>
@@ -20,8 +22,13 @@ const SearchScreen = () => {
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
 
-            <Text>We found {results.length} results </Text>
-            
+            <View>
+                <Text>We found {results.length} results </Text>
+                
+                <SearchResults title='On A Nickel'/>
+                <SearchResults title='On A Dime'/>
+                <SearchResults title='On A Quarter'/>
+            </View>
         </View>
     )
 }
