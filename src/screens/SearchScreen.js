@@ -9,6 +9,15 @@ const SearchScreen = () => {
     const [term, setTerm] = useState('')
     const [searchYelpAPI, results, errorMessage] = UseSearchResultsHook();
 
+    console.log('This is Results: ', results)
+
+    const resultsPriceFilterHelper = price => {
+        // price === '$' || '$$' || '$$$'
+        return results.filter(result => {
+          return result.price === price;
+        });
+    
+    };
     return (
         <View>
             {/* Search Bar */}
@@ -17,15 +26,16 @@ const SearchScreen = () => {
                 onChangeTerm={setTerm}
                 onTermSubmit={() => searchYelpAPI(term)}
             />
+            
             {errorMessage ? <Text>{errorMessage}</Text> : null}
 
             <View>
                 <Text>We found {results.length} results </Text>
             
                 
-                <SearchResults title='On A Nickel'/>
-                <SearchResults title='On A Dime'/>
-                <SearchResults title='On A Quarter'/>
+                <SearchResults results={resultsPriceFilterHelper('$')} title='On A Nickel'/>
+                <SearchResults results={resultsPriceFilterHelper('$$')} title='On A Dime'/>
+                <SearchResults results={resultsPriceFilterHelper('$$$')} title='On A Quarter'/>
             </View>
         </View>
     )

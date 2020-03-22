@@ -14,7 +14,7 @@ export default () => {
             const res =  await yelp.get(`/search`, {
                 params: {
                     term: searchTerm,
-                    limit: 5,
+                    limit: 25,
                     location: `jersey city`
                 }
             });
@@ -28,8 +28,6 @@ export default () => {
     useEffect(() => {
         //call yelp api 
         searchYelpAPI('Jersey City')
-
-        console.log('API RESULTS FROM useEffect(): ', results)
     }, []);
 
     return[searchYelpAPI, results, errorMessage]
