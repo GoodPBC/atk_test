@@ -10,13 +10,8 @@ const SearchScreen = () => {
     const [term, setTerm] = useState('')
     const [results, setResults] = useState([])
     const [errorMessage, setErrorMessage] = useState('')
-    const useEffectHandler = (term) => {
-        if (term = 'pasta') {
-            console.log('Its Pasta time')
-        }
-    }
-    // searchHook
-    // const [YelpApiSearch, results, errorMessage] = UseYelpApiSearchHook()
+
+    // const [YelpApiSearch, results, errorMessage] = UseYelpApiSearchHook()     // searchHook
 
     const searchYelpAPI = async searchTerm => {
 
@@ -36,8 +31,10 @@ const SearchScreen = () => {
     }
 
     useEffect(() => {
+        //call yelp api 
         searchYelpAPI('Jersey City')
-        console.log(results)
+
+        console.log('API RESULTS FROM useEffect(): ', results)
     }, []);
 
     return (
