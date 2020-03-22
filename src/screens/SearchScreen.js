@@ -1,16 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Search from '../components/Search'
-import UseYelpApiSearchHook from '../hooks/UseYelpApiSearchHook'
+// import UseYelpApiSearchHook from '../hooks/UseYelpApiSearchHook'
 import SearchResults from '../components/SearchResults'
-
+import yelp from '../api/yelp'
 
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('')
-    const [YelpApiSearch, results, errorMessage] = UseYelpApiSearchHook()
+    const [results, setResults] = useState([])
+    const [errorMessage, setErrorMessage] = useState('')
+    const useEffectHandler = (term) => {
+        if (term = 'pasta') {
+            console.log('Its Pasta time')
+        }
+    }
+    // searchHook
+    // const [YelpApiSearch, results, errorMessage] = UseYelpApiSearchHook()
 
-    console.log( results )
+    const searchYelpAPI = async searchTerm => {
+
+        try {
+            const res =  await yelp.get(`/search`, {
+                params: {
+                    term: searchTerm,
+                    limit: 5,
+                    location: `jersey city`
+                }
+            });
+            setResults(res.data.businesses)
+        } catch (err) {
+            setErrorMessage('OOPS, Something Went Wrong.')
+            console.log(err)
+        }
+    }
+
+    useEffect(() => {
+        searchYelpAPI('Jersey City')
+        console.log(results)
+    }, []);
 
     return (
         <View>
@@ -18,7 +46,7 @@ const SearchScreen = () => {
             <Search 
                 term={term} 
                 onChangeTerm={setTerm}
-                onTermSubmit={() => YelpApiSearch(term)}
+                onTermSubmit={() => searchYelpAPI(term)}
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
 
@@ -38,3 +66,20 @@ export default SearchScreen
 const styles = StyleSheet.create({
 
 })
+
+
+// import React, { useState, useEffect } from 'react'
+// import yelp from "../api/yelp";
+
+// //Yelp  API Helper
+// export default () => {
+    
+
+    
+//     // Axios Helper
+//     const YelpApiSearch = async searchTerm => {
+
+//     };
+
+//     return [YelpApiSearch, results, errorMessage]
+// }

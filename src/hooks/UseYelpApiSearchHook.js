@@ -23,11 +23,6 @@ export default () => {
             console.log(err)
         }
     };
-    
-    //
-    useEffect(() => {
-        YelpApiSearch('Jersey City')
-    }, []);
 
     return [YelpApiSearch, results, errorMessage]
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const SearchResults = ({title }) => {
+const SearchResults = ({ title }) => {
     return (
         <View>
             <Text style={styles.title}>{title}</Text>
