@@ -3,12 +3,13 @@ import yelp from "../api/yelp";
 
 //Yelp  API Helper
 export default () => {
-    
     const [results, setResults] = useState([])
     const [errorMessage, setErrorMessage] = useState('')
-    
-    // Axios Helper
-    const YelpApiSearch = async searchTerm => {
+
+    // const [YelpApiSearch, results, errorMessage] = UseYelpApiSearchHook()     // searchHook
+
+    const searchYelpAPI = async searchTerm => {
+
         try {
             const res =  await yelp.get(`/search`, {
                 params: {
@@ -22,7 +23,14 @@ export default () => {
             setErrorMessage('OOPS, Something Went Wrong.')
             console.log(err)
         }
-    };
+    }
 
-    return [YelpApiSearch, results, errorMessage]
+    useEffect(() => {
+        //call yelp api 
+        searchYelpAPI('Jersey City')
+
+        console.log('API RESULTS FROM useEffect(): ', results)
+    }, []);
+
+    return[searchYelpAPI, results, errorMessage]
 }
