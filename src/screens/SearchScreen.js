@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import Search from '../components/Search'
 import UseSearchResultsHook from '../hooks/UseSearchResultsHook'
 import SearchResults from '../components/SearchResults'
@@ -30,12 +30,14 @@ const SearchScreen = () => {
             {errorMessage ? <Text>{errorMessage}</Text> : null}
 
             <View>
-                <Text>We found {results.length} results </Text>
+                <Text style={styles.header}>We found {results.length} results </Text>
             
-                
-                <SearchResults results={resultsPriceFilterHelper('$')} title='On A Nickel'/>
-                <SearchResults results={resultsPriceFilterHelper('$$')} title='On A Dime'/>
-                <SearchResults results={resultsPriceFilterHelper('$$$')} title='On A Quarter'/>
+                <ScrollView>
+                    <SearchResults style={styles.results} results={resultsPriceFilterHelper('$')} title='On A Nickel'/>
+                    <SearchResults style={styles.results} results={resultsPriceFilterHelper('$$')} title='On A Dime'/>
+                    <SearchResults style={styles.results} results={resultsPriceFilterHelper('$$$')} title='On A Quarter'/>
+                    <SearchResults style={styles.results} results={resultsPriceFilterHelper('$$$$')} title='Splurge'/>
+                </ScrollView>
             </View>
         </View>
     )
@@ -44,7 +46,12 @@ const SearchScreen = () => {
 export default SearchScreen
 
 const styles = StyleSheet.create({
-
+    header: {
+        marginLeft: 15
+    },
+    results: {
+        marginLeft: 15
+    }
 })
 
 
